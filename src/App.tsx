@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.scss'
-import Segment from './components/Segment'
+import SegmentTimeSpan from './components/SegmentTimeSpan'
 
 function App() {
   const [time, setTime] = useState<number>(1)
@@ -12,8 +12,9 @@ function App() {
           We're launching soon
         </h1>
         <div className="timerContainer">
-          <Segment number={time}/>
-          <Segment number={time}/>
+        <SegmentTimeSpan timeUnit={"Hours"}/>
+        <SegmentTimeSpan timeUnit={"Minutes"}/>
+        <SegmentTimeSpan timeUnit={"Days"}/>
         </div>
       </main>
       <footer>

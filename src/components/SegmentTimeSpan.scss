@@ -1,0 +1,22 @@
+@import '../variables.scss';
+
+.SegmentTimeSpan {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .Segments {
+        display: flex;
+        flex-direction: row;
+        gap: 10px
+    }
+
+    .TimeUnit {
+        p {
+            color: white;
+            font-family: 'Red Hat Text', sans-serif;
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+}

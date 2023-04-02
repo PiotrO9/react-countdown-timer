@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     height: 80%;
+    gap: 80px;
       
       h1 {
           font-family: 'Red Hat Text', sans-serif;
@@ -25,7 +26,7 @@
             flex-direction: row;
             gap: 40px;
         }
-    }
+  }
 
   footer {
     position: absolute;
