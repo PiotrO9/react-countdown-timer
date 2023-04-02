@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.App {
+  background-image: url('assets/images/bg-stars.svg');
+  position: relative;
+  background-color: hsl(236, 21%, 26%);
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+      
+      h1 {
+          font-family: 'Red Hat Text', sans-serif;
+          text-transform: uppercase;
+          color: white;
+          letter-spacing: 6px;
+          word-spacing: 8px;
+        }
+
+        .timerContainer {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+    }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background-image: url('assets/images/pattern-hills.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
