@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react'
 import './Segment.scss'
+import ISegmentParams from '../assets/Models/Interfaces/ISegmentParams'
+import Position from '../assets/Models/Enums/Position'
 
 function Segment({number, position}: ISegmentParams) {
     const [time, setTime] = useState<number>(number)
-    
-    useEffect(() => {
-      
-    })
 
     return (
         <div className='SegmentElement'  key={number}>
-            <div className={`Segment ${position == 'left' ? 'left': 'right'}`}>
+            <div className={`Segment ${position == Position.Left ? Position.Left: Position.Right}`}>
                 <div className="dot"></div>
                 <div className="Segment__display--top">
                     {time}
@@ -33,9 +31,6 @@ function Segment({number, position}: ISegmentParams) {
     )
 }
 
-interface ISegmentParams {
-    number: number,
-    position: string
-}
+
 
 export default Segment

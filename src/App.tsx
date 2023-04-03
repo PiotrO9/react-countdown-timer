@@ -12,9 +12,10 @@ function App() {
           We're launching soon
         </h1>
         <div className="timerContainer">
+        <SegmentTimeSpan timeUnit={"Days"}/>
         <SegmentTimeSpan timeUnit={"Hours"}/>
         <SegmentTimeSpan timeUnit={"Minutes"}/>
-        <SegmentTimeSpan timeUnit={"Days"}/>
+        <SegmentTimeSpan timeUnit={"Seconds"}/>
         </div>
       </main>
       <footer>
