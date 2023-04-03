@@ -9,6 +9,37 @@
         font-family: 'Red Hat Text', sans-serif;
         position: relative;
         
+        &.left {
+            position: relative;
+
+            .dot {
+                position: absolute;
+                width: 16px;
+                height: 16px; 
+                background-color: hsl(236, 21%, 26%);;
+                z-index: 10;
+                left: -10%;
+                top: 40%;
+                border-radius: 10px;
+              }
+        }
+
+        &.right {
+            position: relative;
+            
+            .dot {
+                position: absolute;
+                width: 16px;
+                height: 16px; 
+                background-color: hsl(236, 21%, 26%);;
+                z-index: 10;
+                right: -10%;
+                top: 40%;
+                border-radius: 10px;
+              }
+        }
+        
+
         &__display {
             position: relative;
             
@@ -21,15 +52,18 @@
             }
             
             &--top {
-                background-color: #111;
-                color: white;
+                color: $SoftRed;
                 line-height: 1.5;
+                background-color: $VeryDarkBlue;
+                border-radius: $BorderRadious;
             }
             
             &--bottom {
-                background-color: #333;
-                color: white;
+                color: $SoftRed;
                 line-height: 0;
+                background-color: $VeryDarkBlackBlue;
+                border-radius: $BorderRadious;
+                position: relative;
             }
         }
         
@@ -40,19 +74,19 @@
             width: 100%;
             perspective: 400px;
             
-            &.flip  {
+            // &.flip  {
 
-                div {
-                    &:nth-child(1) {
-                        animation: flip-top 1s linear;
-                    }
+            //     div {
+            //         &:nth-child(1) {
+            //             animation: flip-top 1s linear;
+            //         }
 
-                    &:nth-child(2) {
-                        animation: flip-bottom 1s linear;
-                    }
-                }
+            //         &:nth-child(2) {
+            //             animation: flip-bottom 1s linear;
+            //         }
+            //     }
                 
-            }
+            // }
 
             &--top, &--bottom {
                 position: absolute;
@@ -65,29 +99,37 @@
             &--top {
                 top: 0;
                 line-height: 1.5;
-                color: white;
-                background-color: #111;
+                color: $SoftRed;
                 transform-origin: bottom;
+                background-color: $VeryDarkBlue;
+
+                &.left {
+                    border-top-left-radius: $BorderRadious;
+                }
+
+                &.right {
+                    border-top-right-radius: $BorderRadious;
+                }
             }
             
             &--bottom {
                 bottom: 0;
                 line-height: 0;
-                color: white;
-                background-color: #333;
-                border-top: 2px solid black;
+                color: $LightSoftRed;
                 transform-origin: top;
+                background-color: $VeryDarkBlackBlue;
+
+                &.left {
+                    border-bottom-left-radius: $BorderRadious;
+                }
+
+                &.right {
+                    border-bottom-right-radius: $BorderRadious;
+                }
             }
         }
     }
-
-    .TimeUnit {
-        p {
-            color: white;
-            font-family: 'Red Hat Text', sans-serif;
-            font-size: 28px;
-        }
-    }
+    
 }
 
 @keyframes flip-top {
