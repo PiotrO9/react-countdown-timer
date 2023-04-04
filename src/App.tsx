@@ -1,16 +1,33 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.scss'
 import SegmentTimeSpan from './components/SegmentTimeSpan'
 import GetTimeToCount from './assets/utils/GetTimeToCount'
 import GetSecondsBetweenDates from './assets/utils/GetSecondsBetweenDates'
+import SplitTimeAmountIntoUnits from './assets/utils/SplitTimeAmountIntoUnits'
 
 function App() {
-  const [time, setTime] = useState<number>(1)
-  const [targetTime, setTargetTime] = useState<number>()
+  const emptyDateObject = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  const [timeInSeconds, setTimeInSeconds] = useState<number>(GetSecondsBetweenDates(GetTimeToCount()))
+  const [timeInUnits, setTimeInUnits] = useState<Object>(emptyDateObject)
+  const timerId: any = useRef()
 
   useEffect(() => {
-    console.log(GetSecondsBetweenDates(GetTimeToCount()))
-  })
+    timerId.current = setInterval(() => {
+      setTimeInSeconds(prev => prev - 1)
+    }, 1000)
+    return () => clearInterval(timerId.current)
+  }, [])
+
+  useEffect(() => {
+    if(timeInSeconds == 0) {
+      clearInterval(timerId.current)
+    }
+    else {
+      setTimeInUnits(SplitTimeAmountIntoUnits(timeInSeconds))
+      console.log(timeInUnits)
+     }
+    
+  }, [timeInSeconds])
 
   return (
     <div className="App">
