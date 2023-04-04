@@ -6,6 +6,10 @@ import Position from '../assets/Models/Enums/Position'
 function Segment({number, position}: ISegmentParams) {
     const [time, setTime] = useState<number>(number)
 
+    useEffect(() => {
+        setTime(number)
+    })
+
     return (
         <div className='SegmentElement'  key={number}>
             <div className={`Segment ${position == Position.Left ? Position.Left: Position.Right}`}>

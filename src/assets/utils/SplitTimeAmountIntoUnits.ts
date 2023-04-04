@@ -1,4 +1,6 @@
-function SplitTimeAmountIntoUnits(timeAmount: number): Object {
+import SegmentTimeParams from "../Models/Classes/SegmentTimeParams"
+
+function SplitTimeAmountIntoUnits(timeAmount: number): SegmentTimeParams {
     const days: number = Math.floor(timeAmount / (86400))
     timeAmount = timeAmount - (days * 86400)
     const hours: number = Math.floor(timeAmount / 3600)

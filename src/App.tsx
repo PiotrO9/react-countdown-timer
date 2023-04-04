@@ -4,11 +4,12 @@ import SegmentTimeSpan from './components/SegmentTimeSpan'
 import GetTimeToCount from './assets/utils/GetTimeToCount'
 import GetSecondsBetweenDates from './assets/utils/GetSecondsBetweenDates'
 import SplitTimeAmountIntoUnits from './assets/utils/SplitTimeAmountIntoUnits'
+import SegmentTimeParams from './assets/Models/Classes/SegmentTimeParams'
 
 function App() {
-  const emptyDateObject = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  const emptyDateObject: SegmentTimeParams = { days: 0, hours: 0, minutes: 0, seconds: 0 }
   const [timeInSeconds, setTimeInSeconds] = useState<number>(GetSecondsBetweenDates(GetTimeToCount()))
-  const [timeInUnits, setTimeInUnits] = useState<Object>(emptyDateObject)
+  const [timeInUnits, setTimeInUnits] = useState<SegmentTimeParams>(emptyDateObject)
   const timerId: any = useRef()
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
     }
     else {
       setTimeInUnits(SplitTimeAmountIntoUnits(timeInSeconds))
-      console.log(timeInUnits)
+      console.log(timeInUnits.days)
      }
     
   }, [timeInSeconds])
@@ -36,10 +37,10 @@ function App() {
           We're launching soon
         </h1>
         <div className="timerContainer">
-        <SegmentTimeSpan timeUnit={"Days"}/>
-        <SegmentTimeSpan timeUnit={"Hours"}/>
-        <SegmentTimeSpan timeUnit={"Minutes"}/>
-        <SegmentTimeSpan timeUnit={"Seconds"}/>
+        <SegmentTimeSpan timeUnit={"Days"} time={timeInUnits.days}/>
+        <SegmentTimeSpan timeUnit={"Hours"} time={timeInUnits.hours}/>
+        <SegmentTimeSpan timeUnit={"Minutes"} time={timeInUnits.minutes}/>
+        <SegmentTimeSpan timeUnit={"Seconds"} time={timeInUnits.seconds}/>
         </div>
       </main>
       <footer>
