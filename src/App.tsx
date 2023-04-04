@@ -5,6 +5,7 @@ import GetTimeToCount from './assets/utils/GetTimeToCount'
 import GetSecondsBetweenDates from './assets/utils/GetSecondsBetweenDates'
 import SplitTimeAmountIntoUnits from './assets/utils/SplitTimeAmountIntoUnits'
 import SegmentTimeParams from './assets/Models/Classes/SegmentTimeParams'
+import Socials from './components/Socials'
 
 function App() {
   const emptyDateObject: SegmentTimeParams = { days: 0, hours: 0, minutes: 0, seconds: 0 }
@@ -25,7 +26,6 @@ function App() {
     }
     else {
       setTimeInUnits(SplitTimeAmountIntoUnits(timeInSeconds))
-      console.log(timeInUnits.days)
      }
     
   }, [timeInSeconds])
@@ -44,7 +44,7 @@ function App() {
         </div>
       </main>
       <footer>
-
+        <Socials />
       </footer>
     </div>
   )
